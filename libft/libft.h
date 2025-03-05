@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 13:19:15 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/03/03 01:41:12 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/03/04 04:10:04 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,13 @@
 # include <ctype.h>
 # include <limits.h>
 
-typedef struct s_list // struct for linked lists
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }	t_list;
+
+
 
 // Libc functions : ------------------------------------------------------------
 

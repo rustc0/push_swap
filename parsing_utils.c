@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 18:13:49 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/03/03 02:57:41 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/03/04 04:10:58 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,9 @@ void	free_array(char **arr)
 	i = 0;
 	while (arr[i])
 	{
-		// arr[i] = NULL;
 		free(arr[i]);
 		i++;
 	}
-	// arr = NULL;
 	free(arr);
 }
 

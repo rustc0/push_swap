@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 18:28:43 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/03/03 06:05:08 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/03/05 01:03:24 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ char	**ft_split(char *str)
 	int (i), (j), (k);
 	i = 0;
 	k = 0;
-	if (!str || cw(str))
+	if (!str || !cw(str))
 		return (NULL);
 	arr = malloc(sizeof(char *) * (cw(str) + 1));
 	if (!arr)

@@ -6,7 +6,7 @@
 #    By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/25 20:48:48 by rahmoham          #+#    #+#              #
-#    Updated: 2025/02/18 16:27:34 by rahmoham         ###   ########.fr        #
+#    Updated: 2025/03/05 00:59:15 by rahmoham         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ $(NAME): $(OBJS)
 	@$(AR) $(NAME) $(OBJS)
 
 bonus: $(OBJS) $(BOBJS)
-	@$(AR) $(NAME) $(BOBJS)
+	@$(AR) $(NAME) $(OBJS) $(BOBJS)
 
 %.o: %.c
 	@$(CC) -c $< -o $@

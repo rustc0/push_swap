@@ -76,7 +76,9 @@ void	append_to_stack(t_stack **stack, int data)
 void	get_args(int ac, char **av, t_stack **stack)
 {
 	char	**arr;
-	int	(i), (j), (num);
+	long	num;
+
+	int	(i), (j);
 	if (!syntx_check(av))
 		(write(2, "Error", 5), exit(1));
 	i = 1;
@@ -84,23 +86,21 @@ void	get_args(int ac, char **av, t_stack **stack)
 	{
 		arr = ft_split(av[i]);
 		if (!arr)
-			(write(2, "Error", 5), exit(1));
+			(free_all(stack, arr));
 		j = 0;
 		while(arr[j])
 		{
-			if (!is_dup(ft_atol(arr[j]), *stack)
-			|| (ft_atol(arr[j]) > INT_MAX || ft_atol(arr[j]) < INT_MIN))
-				free_all(stack, arr);
 			num = ft_atol(arr[j]);
+			if (num == LONG_MAX || !is_dup(num, *stack))
+				free_all(stack, arr);
 			append_to_stack(stack, num);
-			free(arr[j]);
 			j++;
 		}
-		free (arr);
+		free_array(arr);
 		i++;
 	}
 }
-int syntx_check(char **av)
+int	syntx_check(char **av)
 {
 	int	i;
 	int	j;

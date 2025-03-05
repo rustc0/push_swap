@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 12:51:07 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/03/03 01:41:38 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/03/05 01:42:15 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ long	ft_atol(const char *str)
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		ret = ret * 10 + (str[i] - '0');
+		if (ret * n > INT_MAX || ret * n < INT_MIN)
+			return (LONG_MAX);
 		i++;
 	}
 	return (ret * n);
