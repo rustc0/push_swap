@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 10:37:10 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/03/05 02:02:53 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/03/05 20:41:35 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,11 @@ void	free_stack(t_stack **stack);
 void	free_all(t_stack **stack, char **arr);
 int		syntx_check(char **av);
 t_stack	*ft_stacklast(t_stack *stack);
+
+// operations :
+
+void	push(t_stack **dst, t_stack **src);
+void	swap(t_stack **stack);
+void	rotate(t_stack **stack);
 
 #endif

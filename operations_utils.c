@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 06:10:18 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/03/05 02:25:43 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/03/06 00:35:12 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,17 @@ void	rotate(t_stack **stack)
 	(*stack)->prev = NULL;
 	node->next->prev = node;
 	node->next->next = NULL;
+}
+void	r_rotate(t_stack **stack)
+{
+	t_stack	*last;
+
+	if (!*stack || !(*stack)->next) 
+		return ;
+	last = ft_stacklast(*stack);
+	last->prev->next = NULL;
+	last->next = *stack;
+	last->prev = NULL;
+	*stack = last;
+	last->next->prev = last;
 }
