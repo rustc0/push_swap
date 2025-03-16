@@ -79,8 +79,6 @@ void	get_args(int ac, char **av, t_stack **stack)
 	long	num;
 
 	int	(i), (j);
-	if (!syntx_check(av))
-		(write(2, "Error", 5), exit(1));
 	i = 1;
 	while (i < ac)
 	{
@@ -91,7 +89,8 @@ void	get_args(int ac, char **av, t_stack **stack)
 		while(arr[j])
 		{
 			num = ft_atol(arr[j]);
-			if (num == LONG_MAX || !is_dup(num, *stack))
+			if (num == LONG_MAX || !is_dup(num, *stack)
+				|| syntax_error(arr[j]))
 				free_all(stack, arr);
 			append_to_stack(stack, num);
 			j++;
@@ -100,29 +99,19 @@ void	get_args(int ac, char **av, t_stack **stack)
 		i++;
 	}
 }
-int	syntx_check(char **av)
-{
-	int	i;
-	int	j;
 
-	i = 0;
-	while (av[i])
+int	syntax_error(char *av)
+{
+	if (!av || !*av)
+		return (1);
+	if (!(av[0] == '+' || av[0] == '-' || (av[0] >= '0' && av[0] <= '9')))
+		return (1);
+	if ((av[0] == '+' || av[0] == '-') && !(av[1] >= '0' && av[1] <= '9'))
+		return (1);
+	while (*++av)
 	{
-		j = 0;
-		while (av[i][j])
-		{
-			if (av[i][j] == '+' || av[i][j] == '-')
-			{
-				j++;
-				if (!(av[i][j] >= '0' && av[i][j] <= '9'))
-					return (0);
-				continue ;
-			}
-			if (!(av[i][j] >= '0' && av[i][j] <= '9') && av[i][j] != ' ')
-				return (1);
-			j++;
-		}
-		i++;
+		if (!(*av >= '0' && *av <= '9'))
+			return (1);
 	}
-	return (1);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 18:13:49 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/03/06 00:38:41 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/03/10 02:20:03 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,17 @@ t_stack	*ft_stacklast(t_stack *stack)
 	while (stack->next)
 		stack = stack->next;
 	return (stack);
+}
+
+int	is_sorted(t_stack *stack)
+{
+	if (!stack)
+		return (1);
+	while (stack->next)
+	{
+		if(stack->data > stack->next->data)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
 }

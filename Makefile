@@ -2,7 +2,7 @@ NAME = push_swap
 
 CC = cc -Wall -Werror -Wextra
 
-SRC = main.c get_args.c utils.c operations_utils.c
+SRC = main.c get_args.c utils.c operations_utils.c operations.c operations_r.c ft_sort.c sorting_utils.c sorting_utils_2.c
 
 LIBFT = libft/libft.a
 
@@ -12,7 +12,7 @@ LIBFT_SRCS =./libft/ft_atoi.c		./libft/ft_isprint.c	./libft/ft_strnstr.c 	./libf
 			./libft/ft_isalnum.c	./libft/ft_memcmp.c		./libft/ft_strlcpy.c 	./libft/ft_substr.c		./libft/ft_putstr_fd.c	\
 			./libft/ft_isalpha.c	./libft/ft_memcpy.c		./libft/ft_strlen.c		./libft/ft_strjoin.c	./libft/ft_putendl_fd.c	\
 			./libft/ft_isascii.c	./libft/ft_memmove.c	./libft/ft_strchr.c		./libft/ft_itoa.c		./libft/ft_putnbr_fd.c	\
-			./libft/ft_isdigit.c	./libft/ft_memset.c		./libft/ft_strtrim.c 	./libft/ft_strmapi.c \
+			./libft/ft_isdigit.c	./libft/ft_memset.c		./libft/ft_strtrim.c 	./libft/ft_strmapi.c
 
 INCLUDES = -I./libft
 
@@ -23,11 +23,11 @@ MAKEFLAGS += --no-print-directory
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(SRC) push_swap.h
-	@echo "COMPILING PUSH_SWAP...\n"
+	@echo "COMPILING PUSH_SWAP..."
 	@$(CC) $(SRC) $(INCLUDES) -L./libft $(LIBS) -o $(NAME)
 
 $(LIBFT): $(LIBFT_SRCS)
-	@echo "MAKING LIBFT ARCHIVE...\n"
+	@echo "MAKING LIBFT ARCHIVE..."
 	@make -C libft && make clean -C libft
 
 clean:
@@ -39,4 +39,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re FORCE               
+.PHONY: all clean fclean re               
