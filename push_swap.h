@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP
+#ifndef PUSH_SWAP_H
 
-# define PUSH_SWAP
+# define PUSH_SWAP_H
 
 # include <stdio.h>
 # include <unistd.h>
@@ -25,8 +25,6 @@ typedef struct s_stack
 	struct s_stack	*prev;
 	struct s_stack	*next;
 	int				data;
-	int				ch_start;
-	int				ch_end;
 }	t_stack;
 
 //	parsing :

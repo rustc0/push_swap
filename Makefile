@@ -28,14 +28,16 @@ $(NAME): $(LIBFT) $(SRC) push_swap.h
 
 $(LIBFT): $(LIBFT_SRCS)
 	@echo "MAKING LIBFT ARCHIVE..."
-	@make -C libft && make clean -C libft
+	@make -C libft
 
 clean:
 	@$(MAKE) -C libft clean
+	@echo "Cleaning object files..."
 
 fclean: clean
 	@rm -f $(NAME)
 	@$(MAKE) -C libft fclean
+	@echo "Getting initial state..."
 
 re: fclean all
 

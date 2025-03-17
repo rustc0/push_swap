@@ -14,7 +14,7 @@
 
 void	sort_three(t_stack **stack)
 {
-	t_stack *max;
+	t_stack	*max;
 
 	if (!stack || !*stack)
 		return ;
@@ -30,7 +30,7 @@ void	sort_three(t_stack **stack)
 void	sort_five(t_stack **stack, t_stack **b)
 {
 	t_stack	*min;
-	
+
 	if (!stack || !*stack)
 		return ;
 	while (stack_size(*stack) > 3)
@@ -47,11 +47,14 @@ void	sort_five(t_stack **stack, t_stack **b)
 	pa(stack, b);
 }
 
-void	push_to_b(t_stack **a, t_stack **b, int *arr, int *ch_start, int *ch_end)
+void	push_to_b(t_stack **a, t_stack **b,
+					int *ch_start, int *ch_end)
 {
 	int	len;
+	int	*arr;
 
 	len = stack_size(*a);
+	arr = sorted_copy(*a, len);
 	while (*a)
 	{
 		if ((*a)->data <= arr[*ch_start])
@@ -65,17 +68,18 @@ void	push_to_b(t_stack **a, t_stack **b, int *arr, int *ch_start, int *ch_end)
 		{
 			pb(b, a);
 			update_i(ch_start, ch_end, len);
-			if((*b)->next && (*b)->data <= (*b)->next->data)
+			if ((*b)->next && (*b)->data <= (*b)->next->data)
 				sb(b);
 		}
 		else
 			ra(a);
 	}
+	free (arr);
 }
 
 void	push_back(t_stack **a, t_stack **b)
 {
-	int	(max_pos), (size), (i);
+	int (max_pos), (size), (i);
 	while (*b)
 	{
 		max_pos = find_max_position(b);
@@ -98,13 +102,9 @@ void	push_back(t_stack **a, t_stack **b)
 
 void	sort_stack(t_stack **a, t_stack **b)
 {
-	int	*arr;
-
-	int	(ch_start), (ch_end);
-	arr = sorted_copy(*a, stack_size(*a));
+	int (ch_start), (ch_end);
 	ch_start = 0;
 	ch_end = chunk_size(stack_size(*a));
-	push_to_b(a, b, arr, &ch_start, &ch_end);
+	push_to_b(a, b, &ch_start, &ch_end);
 	push_back(a, b);
-	free (arr);
 }

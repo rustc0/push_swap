@@ -26,8 +26,6 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
-
-
 // Libc functions : ------------------------------------------------------------
 
 int		ft_isalnum(int c);

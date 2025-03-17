@@ -14,9 +14,7 @@
 
 int	cw(char *str)
 {
-	// char	**arr;
-
-	int	(count), (in);
+	int (count), (in);
 	count = 0;
 	in = 0;
 	if (!str)
@@ -34,16 +32,14 @@ int	cw(char *str)
 		}
 		str++;
 	}
-	// arr = malloc(sizeof(char *) * (count + 1));
-	// if (!arr || !count)
-	// 	return (NULL);
 	return (count);
 }
 
-char *ft_strncpy(char *s1, char *s2, int n)
+char	*ft_strncpy(char *s1, char *s2, int n)
 {
-	int i = 0;
+	int	i;
 
+	i = 0;
 	while (i < n && s2[i])
 	{
 		s1[i] = s2[i];
@@ -67,14 +63,13 @@ void	*ft_clean(char **arr, int allocated)
 char	**ft_split(char *str)
 {
 	char	**arr;
+
 	int (i), (j), (k);
 	i = 0;
 	k = 0;
 	if (!str || !cw(str))
 		return (NULL);
 	arr = malloc(sizeof(char *) * (cw(str) + 1));
-	if (!arr)
-		return (free(arr), NULL);
 	while (str[i])
 	{
 		while (str[i] && (str[i] == ' '))

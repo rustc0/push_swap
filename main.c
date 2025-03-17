@@ -1,38 +1,64 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rahmoham <rahmoham@student.42.fr>          #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025-03-17 02:03:48 by rahmoham          #+#    #+#             */
+/*   Updated: 2025-03-17 02:03:48 by rahmoham         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void	printstacks(t_stack *a, t_stack *b)
+int	rev_sorted(t_stack *stack)
 {
-	t_stack *tmp_a;
-	t_stack *tmp_b;
-
-	tmp_a = a;
-	tmp_b = b;
-	printf("stack a : ");
-	while (tmp_a)
+	if (!stack)
+		return (1);
+	while (stack->next)
 	{
-		printf("%d ", tmp_a->data);
-		tmp_a = tmp_a->next;
+		if (stack->data < stack->next->data)
+			return (0);
+		stack = stack->next;
 	}
-	printf("\nstack b : ");
-	while (tmp_b)
-	{
-		printf("%d ", tmp_b->data);
-		tmp_b = tmp_b->next;
-	}
-	printf("\n");
+	return (1);
 }
 
-int main(int ac, char **av)
+void	undo_rev(t_stack **a, t_stack **b)
 {
-	t_stack *stack_a;
-	t_stack *stack_b;
+	int	i;
+	int	size;
+
+	i = 0;
+	size = stack_size(*a);
+	while (i < size)
+	{
+		pb(b, a);
+		i++;
+	}
+	i = 0;
+	while (i < size)
+	{
+		rrb(b);
+		pa(a, b);
+		i++;
+	}
+}
+
+int	main(int ac, char **av)
+{
+	t_stack	*stack_a;
+	t_stack	*stack_b;
 
 	stack_a = NULL;
 	stack_b = NULL;
 	if (ac < 2)
 		return (0);
 	get_args(ac, av, &stack_a);
-	if (!is_sorted(stack_a))
+	if (rev_sorted(stack_a) && stack_size(stack_a) > 5)
+		undo_rev(&stack_a, &stack_b);
+	else if (!is_sorted(stack_a))
 	{
 		if (stack_size(stack_a) < 4)
 			sort_three(&stack_a);

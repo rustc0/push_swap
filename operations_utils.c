@@ -62,11 +62,12 @@ void	rotate(t_stack **stack)
 	node->next->prev = node;
 	node->next->next = NULL;
 }
+
 void	r_rotate(t_stack **stack)
 {
 	t_stack	*last;
 
-	if (!*stack || !(*stack)->next) 
+	if (!*stack || !(*stack)->next)
 		return ;
 	last = ft_stacklast(*stack);
 	last->prev->next = NULL;

@@ -43,7 +43,7 @@ int	*sorted_copy(t_stack *a, int len)
 	if (!arr)
 		return (NULL);
 	i = 0;
-	while(i < len - 1)
+	while (i < len - 1)
 	{
 		j = 0;
 		while (j < len - i - 1)
@@ -61,29 +61,31 @@ int	*sorted_copy(t_stack *a, int len)
 	return (arr);
 }
 
-int    chunk_size(int size)
+int	chunk_size(int size)
 {
-    if (!size)
-        return (0);
-    if (size <= 6)
-        return (2);
-    else if (size <= 16)
-        return (3);
-    else if (size <= 100)
-        return (15);
-    else if (size <= 500)
-        return (30);
-    else
-        return (45);
+	if (!size)
+		return (0);
+	if (size <= 6)
+		return (3);
+	else if (size <= 16)
+		return (4);
+	else if (size <= 100)
+		return (15);
+	else if (size <= 500)
+		return (30);
+	else
+		return (45);
 }
 
 int	find_max_position(t_stack **stack)
 {
-	t_stack *temp = *stack;
-	int max = temp->data;
-	int max_pos = 0;
-	int current_pos = 0;
+	t_stack	*temp;
 
+	int (max), (max_pos), (current_pos);
+	temp = *stack;
+	max = temp->data;
+	max_pos = 0;
+	current_pos = 0;
 	while (temp)
 	{
 		if (temp->data > max)

@@ -34,8 +34,9 @@ int	is_valid_num(char *str)
 
 int	is_dup(int num, t_stack *stack)
 {
-	t_stack	*tmp = stack;
+	t_stack	*tmp;
 
+	tmp = stack;
 	while (tmp)
 	{
 		if (tmp->data == num)
@@ -52,19 +53,19 @@ void	append_to_stack(t_stack **stack, int data)
 
 	if (!stack)
 		return ;
-	new_node  = (t_stack *)malloc(sizeof(t_stack));
+	new_node = (t_stack *)malloc(sizeof(t_stack));
 	if (!new_node)
-		{
-			free_stack(stack);
-			exit (1);
-		}
+	{
+		free_stack(stack);
+		exit (1);
+	}
 	new_node->data = data;
 	new_node->next = NULL;
 	if (!(*stack))
 	{
 		new_node->prev = NULL;
 		*stack = new_node;
-		return;
+		return ;
 	}
 	temp = *stack;
 	while (temp->next)
@@ -78,7 +79,7 @@ void	get_args(int ac, char **av, t_stack **stack)
 	char	**arr;
 	long	num;
 
-	int	(i), (j);
+	int (i), (j);
 	i = 1;
 	while (i < ac)
 	{
@@ -86,7 +87,7 @@ void	get_args(int ac, char **av, t_stack **stack)
 		if (!arr)
 			(free_all(stack, arr));
 		j = 0;
-		while(arr[j])
+		while (arr[j])
 		{
 			num = ft_atol(arr[j]);
 			if (num == LONG_MAX || !is_dup(num, *stack)

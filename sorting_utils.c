@@ -19,7 +19,7 @@ t_stack	*stack_max(t_stack *stack)
 	if (!stack)
 		return (NULL);
 	max = stack;
-	while(stack)
+	while (stack)
 	{
 		if (stack->data > max->data)
 			max = stack;
@@ -31,7 +31,7 @@ t_stack	*stack_max(t_stack *stack)
 t_stack	*stack_min(t_stack *stack)
 {
 	t_stack	*min;
-	
+
 	if (!stack)
 		return (NULL);
 	min = stack;
@@ -44,7 +44,7 @@ t_stack	*stack_min(t_stack *stack)
 	return (min);
 }
 
-int stack_size(t_stack	*stack)
+int	stack_size(t_stack	*stack)
 {
 	int	count;
 
@@ -61,10 +61,10 @@ int stack_size(t_stack	*stack)
 
 void	update_i(int *ch_start, int *ch_end, int len)
 {
-    (*ch_start)++;
-    (*ch_end)++;
-    if (*ch_start >= len)
-        *ch_start = len - 1;
-    if (*ch_end >= len)
-        *ch_end = len - 1;
+	(*ch_start)++;
+	(*ch_end)++;
+	if (*ch_start >= len)
+		*ch_start = len - 1;
+	if (*ch_end >= len)
+		*ch_end = len - 1;
 }
