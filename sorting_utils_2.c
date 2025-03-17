@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 06:35:34 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/03/16 05:24:45 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/03/17 04:36:51 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,4 +97,17 @@ int	find_max_position(t_stack **stack)
 		current_pos++;
 	}
 	return (max_pos);
+}
+
+void	determine_rotation(t_stack **a, int ch_end)
+{
+	int	pos;
+	int	size;
+	
+	pos = find_chunk_elem(*a, ch_end);
+	size = stack_size(*a);
+	if (pos <= size / 2)
+		ra(a);
+	else
+		rra(a);
 }

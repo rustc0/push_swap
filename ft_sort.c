@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 07:52:43 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/03/16 05:50:39 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/03/17 05:07:06 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,8 @@ void	push_to_b(t_stack **a, t_stack **b,
 				sb(b);
 		}
 		else
-			ra(a);
-	}
+			determine_rotation(a, arr[*ch_end]);
+		}
 	free (arr);
 }
 

@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 10:37:10 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/03/16 07:43:55 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/03/17 04:33:56 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,8 @@ void	sort_stack(t_stack **a, t_stack **b);
 void	update_i(int *ch_start, int *ch_end, int len);
 void	update_i(int *ch_start, int *ch_end, int len);
 int		syntax_error(char *av);
+int		find_chunk_elem(t_stack *a, int ch_end);
+void	determine_rotation(t_stack **a, int ch_end);
+
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 21:34:49 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/03/16 05:50:47 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/03/17 04:31:47 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,21 @@ void	update_i(int *ch_start, int *ch_end, int len)
 		*ch_start = len - 1;
 	if (*ch_end >= len)
 		*ch_end = len - 1;
+}
+
+int	find_chunk_elem(t_stack *a, int ch_end)
+{
+	t_stack *temp;
+	int pos;
+
+	temp = a;
+	pos = 0;
+	while (temp)
+	{
+		if (temp->data <= ch_end)
+			return (pos);
+		temp = temp->next;
+		pos++;
+	}
+	return (-1);
 }
